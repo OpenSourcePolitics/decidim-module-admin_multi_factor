@@ -14,6 +14,8 @@ gem "graphql-docs", "2.1.0"
 gem "decidim-admin_multi_factor", path: "./"
 
 gem "bootsnap", "~> 1.3"
+gem "concurrent-ruby", "1.3.4"
+gem "wicked_pdf", "2.6.3"
 
 group :development, :test do
   gem "decidim-dev"
