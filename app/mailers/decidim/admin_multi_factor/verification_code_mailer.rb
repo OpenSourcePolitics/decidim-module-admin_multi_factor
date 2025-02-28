@@ -10,6 +10,8 @@ module Decidim
       # locale - The locale that will be used for the email content (optional).
       #
       # Returns nothing.
+      helper_method :confirm_path_url
+
       def verification_code(email:, verification:, organization:, expires_at:)
         @verification = verification.strip
         @organization = organization
@@ -19,6 +21,21 @@ module Decidim
           mail(to: email, subject: I18n.t("subject", scope: "decidim.admin_multi_factor.admin_multi_factor.email", verification: verification))
         end
       end
+
+      def confirm_path_url
+        "#{root_url}#{decidim_admin_multi_factor_admin.verify_email_strategy_path}"
+      end
+
+      def root_url
+        @root_url ||= decidim.root_url(host: @organization.host)[0..-2]
+      end
+
+      #def generate_confirmation_token(length = 20)
+        # To calculate real characters, we must perform this operation.
+        # See SecureRandom.urlsafe_base64
+      #  rlength = (length * 3) / 4
+      #  SecureRandom.urlsafe_base64(rlength).tr('lIO0', 'sxyz')
+      #end
     end
   end
 end
