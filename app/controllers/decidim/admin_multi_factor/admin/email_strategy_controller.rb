@@ -29,6 +29,7 @@ module Decidim
           return redirect_to decidim_admin_multi_factor_admin.elevate_path if auth_session.blank?
 
           @form = form(::Decidim::AdminMultiFactor::VerificationCodeForm).instance
+          @info = current_user.email
         end
 
         protected
