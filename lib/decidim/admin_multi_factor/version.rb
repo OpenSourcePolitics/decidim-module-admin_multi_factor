@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-meetings version.
   module AdminMultiFactor
     def self.version
-      "0.27.9"
+      "0.29.2"
     end
   end
 end
