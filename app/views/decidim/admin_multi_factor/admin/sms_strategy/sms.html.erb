@@ -1,38 +1,32 @@
-<div class="content">
-  <div class="wraper">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title margin-top-3">
-        <h1><%= t(".welcome", organization: current_organization.name).html_safe %></h1>
-      </div>
-      <div class="row">
-        <div class="columns large-6 medium-centered" id="select-wrapper">
-          <div class="card">
-            <div class="card__content">
-              <%= decidim_form_for(@form, url: verify_sms_strategy_path, method: :post) do |form| %>
-                <div class="row">
-                  <div class="columns large-6 padding-right-0">
-                    <%= form.select :phone_country, phone_country_options(form.object.phone_country), { id: "omniauth_country", include_blank: true }, class: "country-select" %>
-                  </div>
-                  <div class="columns large-6 padding-left-0">
-                    <%= form.number_field :phone_number %>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="columns large-centered">
-                    <%= form.submit t(".submit"), class:"button expanded" %>
-                  </div>
-                </div>
-              <% end %>
-              <p class="text-center">
-                <%= t(".have_not_received") %>
-                <%= link_to t(".resend_code"), select_elevation_strategy_path(strategy: :sms, resent: true), method: :post %>
-              </p>
+<div class="layout-1col cols-10">
+  <header class="text-center py-10">
+    <h1 class="title-decorator inline-block text-left md:mb-12"><%= t(".welcome", organization: translated_attribute(current_organization.name)).html_safe %></h1>
+  </header>
+  <section class="w-1/2 m-auto">
+    <div class="sms-card">
+      <div class="card-section">
+        <%= decidim_form_for(@form, url: verify_sms_strategy_path, method: :post, class: "block") do |form| %>
+            <div class="row flex flex-col md:flex-row sm:justify-between items-center">
+              <div class="columns">
+                <%= form.select :phone_country, phone_country_options(form.object.phone_country), { id: "omniauth_country", include_blank: true }, class: "country-select" %>
+              </div>
+              <div class="columns">
+                <%= form.number_field :phone_number, class: "w-full" %>
+              </div>
             </div>
-          </div>
-        </div>
+            <div class="row">
+              <div class="text-center my-8">
+                <%= form.submit t(".submit"), class:"button button__sm md:button__lg button__secondary w-40" %>
+              </div>
+            </div>
+        <% end %>
+        <p class="text-center">
+          <%= t(".have_not_received") %>
+          <%= link_to t(".resend_code"), select_elevation_strategy_path(strategy: :sms, resent: true), method: :post %>
+        </p>
       </div>
     </div>
-  </div>
+  </section>
 </div>
-<%= javascript_pack_tag "decidim_admin_multi_factor" %>
-<%= javascript_pack_tag "decidim_select_country" %>
+<%= append_javascript_pack_tag "decidim_admin_multi_factor" %>
+<%= append_javascript_pack_tag "decidim_select_country" %>

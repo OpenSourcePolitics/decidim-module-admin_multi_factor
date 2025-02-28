@@ -1,28 +1,30 @@
-<%= decidim_form_for(@form, html: { class: "form edit_organization" }, url: admin_multi_login_path) do |f| %>
-  <div class="card">
-    <div class="card-divider">
-      <h2 class="card-title"><%= t ".title" %></h2>
-    </div>
-    <div class="card-section">
-      <div class="wrapper">
-        <div class="row">
-          <div class="field">
-            <%= f.check_box :enable_multifactor, help_text: t(".enable_admin_multifactor_help_html") %>
+<div class="item_show__wrapper">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title"><%= t ".title" %></h1>
+  </div>
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, html: { class: "form-defaults form edit_organization" }, url: admin_multi_login_path) do |f| %>
+      <div class="form__wrapper">
+        <div class="card">
+          <div class="card-section">
+            <div class="row column">
+              <%= f.check_box :enable_multifactor, help_text: t(".enable_admin_multifactor_help_html") %>
+            </div>
+            <div class="row column">
+              <%= f.check_box :email, help_text: t(".email_help_html") %>
+            </div>
+            <div class="row column">
+              <%= f.check_box :sms, help_text: t(".sms_help_html") %>
+            </div>
+  <!--          <div class="field">-->
+              <%#= f.check_box :webauthn, help_text: t(".webauthn_help_html") %>
+  <!--          </div>-->
           </div>
-          <div class="field">
-            <%= f.check_box :email, help_text: t(".email_help_html") %>
-          </div>
-          <div class="field">
-            <%= f.check_box :sms, help_text: t(".sms_help_html") %>
-          </div>
-<!--          <div class="field">-->
-            <%#= f.check_box :webauthn, help_text: t(".webauthn_help_html") %>
-<!--          </div>-->
+        </div>
+        <div class="row column">
+          <%= f.submit t(".update"), class: "button button__sm button__secondary small form-general-submit" %>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
-  </div>
-<% end %>
+</div>
