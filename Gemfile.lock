@@ -794,7 +794,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    wicked_pdf (2.6.3)
+    wicked_pdf (2.8.0)
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
