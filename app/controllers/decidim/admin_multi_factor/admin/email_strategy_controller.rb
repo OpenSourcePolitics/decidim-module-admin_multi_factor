@@ -13,7 +13,7 @@ module Decidim
         def email
           SendEmailVerification.call(current_user) do
             on(:ok) do |result, expires_at|
-              init_sessions!({ code: result, expires_at: expires_at, email: current_user.email, strategy: :email })
+              init_sessions!({ code: result, expires_at:, email: current_user.email, strategy: :email })
               flash[:notice] = I18n.t("success", scope: "decidim.admin_multi_factor.admin.admin_multi_factor.email", email: current_user.email)
               redirect_to decidim_admin_multi_factor_admin.verify_email_strategy_path
             end

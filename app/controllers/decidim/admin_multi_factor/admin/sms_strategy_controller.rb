@@ -21,8 +21,8 @@ module Decidim
 
           SendSmsVerification.call(form, current_user) do
             on(:ok) do |result, expires_at, phone_number|
-              init_sessions!({ code: result, expires_at: expires_at, email: current_user.email, strategy: :sms })
-              flash[:notice] = I18n.t("success", scope: "decidim.admin_multi_factor.admin.admin_multi_factor.sms", phone_number: phone_number)
+              init_sessions!({ code: result, expires_at:, email: current_user.email, strategy: :sms })
+              flash[:notice] = I18n.t("success", scope: "decidim.admin_multi_factor.admin.admin_multi_factor.sms", phone_number:)
               redirect_to decidim_admin_multi_factor_admin.verify_sms_code_path
             end
 
