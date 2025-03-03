@@ -18,7 +18,7 @@ module Decidim
         @expires_at = expires_at
 
         I18n.with_locale(locale || organization.default_locale) do
-          mail(to: email, subject: I18n.t("subject", scope: "decidim.admin_multi_factor.admin_multi_factor.email", verification: verification))
+          mail(to: email, subject: I18n.t("subject", scope: "decidim.admin_multi_factor.admin_multi_factor.email", verification:))
         end
       end
 
@@ -29,13 +29,6 @@ module Decidim
       def root_url
         @root_url ||= decidim.root_url(host: @organization.host)[0..-2]
       end
-
-      #def generate_confirmation_token(length = 20)
-        # To calculate real characters, we must perform this operation.
-        # See SecureRandom.urlsafe_base64
-      #  rlength = (length * 3) / 4
-      #  SecureRandom.urlsafe_base64(rlength).tr('lIO0', 'sxyz')
-      #end
     end
   end
 end
