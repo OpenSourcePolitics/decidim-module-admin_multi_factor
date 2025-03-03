@@ -58,6 +58,9 @@ de:
             resend_code: Code erneut senden
             submit: Absenden
             welcome: Willkommen auf der <br><strong>%{organization}-Plattform!</strong>
+      admin_multi_factor:
+        email:
+          subject: 'Ihr Authentifizierungscode lautet: %{verification}'
     components:
       admin_multi_factor:
         name: Admin-Mehrfaktor
