@@ -4,8 +4,8 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", "0.29.2"
-gem "decidim-core", "0.29.2"
+gem "decidim", "~> 0.29.3"
+gem "decidim-core", "~> 0.29.3"
 
 gem "graphql", "~> 2.0"
 gem "graphql-docs", "~> 4.0"
@@ -15,7 +15,7 @@ gem "decidim-admin_multi_factor", path: "./"
 gem "bootsnap", "~> 1.3"
 
 group :development, :test do
-  gem "decidim-dev", "0.29.2"
+  gem "decidim-dev", "~> 0.29.3"
 end
 
 group :development do
