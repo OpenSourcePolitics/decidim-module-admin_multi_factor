@@ -65,6 +65,9 @@ en:
             resend_code: Resend code
             submit: Submit
             welcome: Welcome to the <br><strong>%{organization} platform!</strong>
+      admin_multi_factor:
+        email:
+          subject: 'Your auth code is: %{verification}'
     components:
       admin_multi_factor:
         name: AdminMultiFactor

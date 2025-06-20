@@ -35,6 +35,7 @@ module Decidim
 
         def verify_sms_code
           @form = form(::Decidim::AdminMultiFactor::VerificationCodeForm).instance
+          @info = current_user.email
         end
 
         protected

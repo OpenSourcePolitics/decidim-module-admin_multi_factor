@@ -58,6 +58,9 @@ fr:
             resend_code: Renvoyer le code
             submit: Soumettre
             welcome: Bienvenue sur la plateforme <br><strong>%{organization} !</strong>
+      admin_multi_factor:
+        email:
+          subject: 'Votre code d''authentification est : %{verification}'
     components:
       admin_multi_factor:
         name: AdminMultiFactor
