@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["contact@alecslupu.ro"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim-module-admin_multi_factor"
-  s.required_ruby_version = "~> 3.0"
+  s.required_ruby_version = "~> 3.2"
 
   s.name = "decidim-admin_multi_factor"
   s.summary = "A decidim admin_multi_factor module"
@@ -22,7 +22,8 @@ Gem::Specification.new do |s|
         f.start_with?(*%w(app/ config/ db/ lib/ LICENSE-AGPLv3.txt Rakefile README.md))
     end
   end
-  
+
   s.add_dependency "countries", "~> 5.1", ">= 5.1.2"
-  s.add_dependency "decidim-core", Decidim::AdminMultiFactor.version
+  s.add_dependency "decidim-core", Decidim::AdminMultiFactor.decidim_version
+  s.metadata["rubygems_mfa_required"] = "true"
 end

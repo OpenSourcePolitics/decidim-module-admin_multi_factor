@@ -23,7 +23,7 @@ module Decidim
                               email: user.email,
                               verification: verification_code,
                               organization: user.organization,
-                              expires_at: expires_at
+                              expires_at:
                             ).deliver_later
 
         verification_code

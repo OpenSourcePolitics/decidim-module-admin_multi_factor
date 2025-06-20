@@ -44,7 +44,7 @@ module Decidim
       end
 
       def phone_with_country_code(country_code, phone_number)
-        PhoneNumberFormatter.new(phone_number: phone_number, iso_country_code: country_code).format
+        PhoneNumberFormatter.new(phone_number:, iso_country_code: country_code).format
       end
 
       def phone_number
