@@ -38,6 +38,8 @@ module Decidim
         @gateway ||=
           if Decidim.config.sms_gateway_service == "Decidim::Sms::Twilio::Gateway"
             Decidim.config.sms_gateway_service.constantize.new(phone_number, verification_code, organization: current_organization)
+          elsif Decidim.config.sms_gateway_service.nil?
+            Decidim::Verifications::Sms::ExampleGateway.new(phone_number, verification_code)
           else
             Decidim.config.sms_gateway_service.constantize.new(phone_number, verification_code)
           end
