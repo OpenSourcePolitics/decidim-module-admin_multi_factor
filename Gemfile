@@ -16,8 +16,8 @@ gem "bootsnap", "~> 1.4"
 gem "faker"
 
 group :development, :test do
-  gem "decidim-dev", "~> 0.31.0"
   gem "byebug", "~> 11.0", platform: :mri
+  gem "decidim-dev", "~> 0.31.0"
 end
 
 group :development do
